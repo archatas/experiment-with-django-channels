@@ -1,0 +1,42 @@
+{% extends 'clock/_base.html' %}
+
+{% block content %}
+    <h1 id="clock"></h1>
+    <p>
+        <button class="change-bg-color" data-color="#ffaaaa">A</button>
+        <button class="change-bg-color" data-color="#aaffaa">B</button>
+        <button class="change-bg-color" data-color="#aaaaff">C</button>
+    </p>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        var socket = new WebSocket('ws://' + window.location.host + '/clock/');
+
+        socket.onopen = function open() {
+            console.log('WebSockets connection created.');
+        };
+
+        socket.onmessage = function message(event) {
+            var data = JSON.parse(event.data);
+            // NOTE: We escape JavaScript to prevent XSS attacks.
+            if (data['time']) {
+                var time = encodeURI(data['time']);
+                $('#clock').html(time);
+            }
+            if (data['color']) {
+                var new_color = encodeURI(data['color']);
+                $('body').css('background', new_color);
+            }
+        };
+
+        if (socket.readyState == WebSocket.OPEN) {
+            socket.onopen();
+        }
+
+        $('.change-bg-color').on('click', function () {
+            var new_color = $(this).data('color');
+            socket.send(JSON.stringify({'color': new_color}));
+        });
+    </script>
+{% endblock script %}
