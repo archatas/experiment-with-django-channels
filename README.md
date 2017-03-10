@@ -38,4 +38,4 @@ In addition every visitor of the page can choose the background color of the pag
 
         (venv)$ python manage.py provide_time
 
-7. Open http://127.0.0.1:8000 in your web browser and enjoy.
+7. Open http://127.0.0.1:8000 in multiple web browsers and enjoy.
