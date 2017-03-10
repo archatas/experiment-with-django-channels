@@ -13,7 +13,7 @@ def ws_clock_connect(message):
     # first time value, the others will come from a management command
     Group('clock-group').send({
         'text': json.dumps({
-            'time': timezone.now().strftime("%H:%M:%S"),
+            'time': timezone.localtime(timezone.now()).strftime("%H:%M:%S"),
         })
     })
 

@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         while True:
-            new_time = timezone.now().strftime("%H:%M:%S")
+            new_time = timezone.localtime(timezone.now()).strftime("%H:%M:%S")
             # self.stdout.write(new_time)
             Group('clock-group').send({
                 'text': json.dumps({
