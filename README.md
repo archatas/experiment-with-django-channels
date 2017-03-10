@@ -11,11 +11,11 @@ In addition every visitor of the page can choose the background color of the pag
     
         $ brew install redis
         
-    Run redis server:
+    Start redis server:
     
         $ brew services start redis
         
-    Check if redis is running:
+    Check if redis is reachable:
     
         $ redis-cli ping
         PONG
