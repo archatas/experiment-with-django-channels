@@ -22,13 +22,14 @@ In addition every visitor of the page can choose the background color of the pag
 
 2. Create and activate a virtual environment:
 
-        $ virtualenv .
+        $ virtualenv venv
+        $ . venv/bin/activate
 
 3. Download and extract or clone this project.
 
 4. Install pip requirements into the virtual environment:
         
-        (venv)$ pip install requirements.txt
+        (venv)$ pip install -r requirements.txt
 
 5. Run the local webserver:
 
