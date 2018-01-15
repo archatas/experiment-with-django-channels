@@ -3,7 +3,7 @@
 This is a real-time web app that shows what time it is on the server.
 In addition every visitor of the page can choose the background color of the page for that visitor and other connected visitors.
 
-## Installation
+## Quickstart
 
 1. Install redis:
     
